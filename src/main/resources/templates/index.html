@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Employee Directory Web Interface</title>
+
+  <!-- Fonts & Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins&family=Roboto&display=swap" rel="stylesheet" />
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../static/css/style.css" />
+</head>
+
+<body>
+  <div class="full-container">
+
+    <!-- Navbar -->
+    <div class="navbarCont" id="navbarCont">
+      <div class="navbar">
+        <h1 class="heading">Employee Directory</h1>
+        <button class="navButton" id="navButtonBar"><i class="fa-solid fa-bars"></i></button>
+        <button class="navButton navDrop" id="navButtonClose"><i class="fa-solid fa-close"></i></button>
+        <input id="search" type="search" class="searchBar" placeholder="Search by name or Email" />
+        <button class="filter" id="filter">Filter</button>
+      </div>
+
+      <div class="extraAdd navDrop" id="extraAdd">
+        <input id="searchMobile" type="search" class="searchBar1" placeholder="Search by name or Email" />
+        <button class="filter1" id="filterMobile">Filter</button>
+      </div>
+
+    </div>
+
+    <!-- Main Container -->
+    <div class="main-container">
+
+      <!-- Parameters -->
+      <div class="parameter">
+        <div class="inputContPara">
+          <div class="parameterInput">
+            <label for="sortSelect">Sort:</label>
+            <select id="sortSelect" class="sort">
+              <option value="">Sort By</option>
+              <option value="firstName">First Name</option>
+              <option value="lastName">Last Name</option>
+              <option value="email">Email</option>
+            </select>
+          </div>
+          <div class="parameterInput">
+            <label for="show">Show:</label>
+            <select id="show" name="show">
+              <option>Infinite Scroll</option>
+              <option selected>10</option>
+              <option>25</option>
+              <option>50</option>
+              <option>100</option>
+            </select>
+          </div>
+        </div>
+        <button type="button" class="addEmployee" id="addEmployee">Add Employee</button>
+      </div>
+
+      <!-- Employee List -->
+      <ul class="employee-list-container" id="employee-list-container"></ul>
+
+      <!-- Pagination -->
+      <div class="pagination-controls">
+        <button id="prevPage">Previous</button>
+        <span id="pageNumber">1</span>
+        <button id="nextPage">Next</button>
+      </div>
+
+      <!-- Add Employee Popup -->
+      <div id="popupOverlay" class="popup-overlay hidden">
+        <div class="popup-form">
+          <button class="close-btn" id="closePopup">✖</button>
+          <h2 class="headingAdd">Add Employee</h2>
+          <form id="employeeForm">
+            <input class="inputDecor" type="text" id="firstName" placeholder="First Name" required />
+            <input class="inputDecor" type="text" id="lastName" placeholder="Last Name" required />
+            <input class="inputDecor" type="email" id="email" placeholder="Email" required />
+
+            <label for="department" class="label">Department:</label>
+            <select id="department" class="selectItem">
+              <option selected>IT</option>
+              <option>HR</option>
+              <option>Finance</option>
+              <option>Product Management</option>
+              <option>Engineering / Development</option>
+              <option>Quality Assurance</option>
+              <option>Design (UI/UX)</option>
+              <option>Sales</option>
+              <option>Marketing</option>
+            </select>
+
+            <label for="role" class="label">Role:</label>
+            <select id="role" class="selectItem">
+              <option selected>IT Support Specialist</option>
+              <option>System Administrator</option>
+              <option>Network Engineer</option>
+              <option>IT Security Analyst</option>
+              <option>DevOps Engineer</option>
+            </select>
+
+            <button type="submit" class="addButton">Add</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Edit Employee Popup -->
+      <div id="popupOverlayEdit" class="popup-overlay hidden">
+        <div class="popup-form">
+          <button class="close-btn" id="closePopupEdit">✖</button>
+          <h2 class="headingAdd">Edit Employee</h2>
+          <form id="employeeFormEdit">
+            <input class="inputDecor" type="text" id="firstNameEdit" placeholder="First Name" required />
+            <input class="inputDecor" type="text" id="lastNameEdit" placeholder="Last Name" required />
+            <input class="inputDecor" type="email" id="emailEdit" placeholder="Email" required />
+
+            <label class="label" for="departmentEdit">Department:</label>
+            <select id="departmentEdit" class="selectItem">
+              <option selected>IT</option>
+              <option>HR</option>
+              <option>Finance</option>
+              <option>Product Management</option>
+              <option>Engineering / Development</option>
+              <option>Quality Assurance</option>
+              <option>Design (UI/UX)</option>
+              <option>Sales</option>
+              <option>Marketing</option>
+            </select>
+
+            <label for="roleEdit" class="label">Role:</label>
+            <select id="roleEdit" class="selectItem"></select>
+
+            <button type="submit" class="addButton">Update</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Filter Popup -->
+      <div id="filterPopoup" class="popup-overlay hidden">
+        <div class="popup-form">
+          <button class="close-btn" id="filterPopoupBtn">✖</button>
+          <h2 class="headingAdd">Filter</h2>
+          <form id="filterForm">
+            <input class="inputDecor" type="text" id="filterFirstName" placeholder="First Name" required />
+
+            <label class="label" for="filterDeptName">Department:</label>
+            <select id="filterDeptName" class="selectItem">
+              <option selected>ALL</option>
+              <option>IT</option>
+              <option>HR</option>
+              <option>Finance</option>
+              <option>Product Management</option>
+              <option>Engineering / Development</option>
+              <option>Quality Assurance</option>
+              <option>Design (UI/UX)</option>
+              <option>Sales</option>
+              <option>Marketing</option>
+            </select>
+
+            <label class="label" for="filterRole">Role:</label>
+            <select id="filterRole" class="selectItem"></select>
+
+            <button type="submit" class="addButton">Apply</button>
+            <button type="button" class="addButton" id="resetBtn">Reset</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script type="module" src="../static/js/app.js"></script>
+</body>
+</html>

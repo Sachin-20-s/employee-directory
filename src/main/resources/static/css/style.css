@@ -1,0 +1,345 @@
+/* ========== Reset & Base ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ========== Layout Containers ========== */
+.full-container {
+  max-width: 100vw;
+  height:100vh;
+  background-size: cover;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.employee-list-container {
+  width: 100%;
+  height: 70vh;
+  overflow-y: auto;
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+  list-style: none;
+  padding:20px;
+}
+
+.list-item{
+  width:100%;
+  display:flex;
+  flex-direction: column;
+  margin:10px 0px 0px 0px;
+}
+
+.headName{
+  color:black;
+  font-size:12px;
+}
+
+.containerBtn{
+  display: flex;
+  flex-direction: row;
+  margin:10px 0px 0px 0px;
+}
+
+.edit-btn{
+  width:100px;
+  height: 25px;
+  border-style: none;
+  background-color: aquamarine;
+  color:darkblue;
+  margin:0px 10px 0px 0px;
+}
+
+.delete-btn{
+  width:100px;
+  height: 25px;
+  border-style: none;
+  background-color: aquamarine;
+  color:darkblue;
+  margin:0px 10px 0px 0px;
+}
+
+/* ========== Navbar ========== */
+.navbar {
+  width: 100%;
+  height: 50px;
+  padding: 10px;
+  background-color: #A9A9A9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.heading {
+  font-size: 20px;
+  font-weight: bold;
+  color: #000;
+}
+
+.navButton {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: #000;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* ========== Navbar Toggle ========== */
+.navbarCont {
+  width: 100%;
+}
+
+.extraAdd {
+  width: 100%;
+  height: 10vh;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.navDrop {
+  display: none;
+}
+
+/* ========== Parameter Section ========== */
+.parameter {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 10px;
+}
+
+.inputContPara {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.parameterInput {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.5rem;
+}
+
+/* ========== Forms & Inputs ========== */
+label {
+  font-weight: 500;
+}
+
+select, .searchBar, .searchBar1 {
+  height: 30px;
+  border-radius: 5px;
+  outline: none;
+  padding: 0 10px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.searchBar {
+  display: none;
+  width: 20%;
+}
+
+.searchBar1 {
+  display: block;
+  width: 50%;
+}
+
+select {
+  width: 120px;
+}
+
+/* ========== Buttons ========== */
+.addEmployee {
+  width: 120px;
+  height: 35px;
+  color: #fff;
+  background-color: darkgreen;
+  font-family: 'Courier New', Courier, monospace;
+  border: none;
+  outline: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.filter, .filter1 {
+  height: 30px;
+  width: 120px;
+  font-size: 15px;
+  border-radius: 5px;
+  border: 1px solid #fff;
+  outline: none;
+  background-color: antiquewhite;
+  cursor: pointer;
+}
+
+.filter {
+  display: none;
+}
+
+.filter1 {
+  display: block;
+  color: #000;
+}
+
+/* ========== Pagination ========== */
+.pagination-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  /* border-style:solid; */
+}
+
+.pagination-controls button {
+  padding: 5px 15px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  cursor: pointer;
+}
+
+#pageNumber {
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* ========== Popups ========== */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.popup-form {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  display:flex;
+  flex-direction: column;
+}
+
+.hidden {
+  display: none;
+}
+
+.close-btn{
+  height:30px;
+  width:30px;
+  cursor: pointer;
+  background-color: transparent;
+  border-style: none;
+  margin-left:auto;
+}
+
+.headingAdd{
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size:20px;
+  color:#000;
+  margin:0px 0px 10px 0px;
+}
+
+.inputDecor{
+  width:100%;
+  height:30px;
+  padding:10px;
+  margin:0px 0px 10px 0px;
+  outline: none;
+}
+
+.label{
+  margin:0px 0px 10px 0px;
+  font-size:20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.selectItem{
+  width:100%;
+  margin:0px 0px 10px 0px;
+}
+
+.addButton{
+  width:140px;
+  height:30px;
+  color:lightcoral;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif0;
+  margin:10px 0px 0px 0px;
+  background-color: aquamarine;
+  outline: none;
+  border-style: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* ========== Media Queries ========== */
+@media(min-width:468px){
+  .list-item{
+    width:40%;
+  }
+  .employee-list-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: start;
+    gap:1rem;
+    height: 75vh;
+  }
+}
+@media(min-width: 768px) {
+  .employee-list-container{
+    height: 80vh;
+  }
+  .navbar {
+    height: 60px;
+    padding: 15px;
+  }
+
+  .heading {
+    font-size: 30px;
+  }
+
+  .navButton {
+    display: none;
+  }
+
+  .searchBar {
+    display: block;
+  }
+
+  .filter {
+    display: block;
+  }
+
+  .parameter {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .extraAdd {
+    display: none;
+  }
+  
+  .list-item{
+    width:23%;
+  }
+}
